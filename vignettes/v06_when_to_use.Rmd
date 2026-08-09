@@ -1,0 +1,120 @@
+---
+title: "Parallelization strategies"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Parallelization strategies}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+One may be confused about when to use what parallelization strategy. This vignette guides users to choose the right parallelization strategy for their use cases.
+
+
+## Row parallelization
+Row parallelization stands for the parallelization of a single function call across multiple rows of a data frame or a list. This is the most common use case for parallelization, and it is often the easiest to implement. The `future` package provides a simple and consistent interface for row parallelization.
+
+In geospatial analysis, row parallelization is useful when you have a large number of spatial features and each row can be processed independently.
+
+```r
+library(future)
+library(futurize)
+library(terra)
+library(chopin)
+
+sa <- sf::st_read(system.file("shape/nc.shp", package = "sf")) |>
+  sf::st_transform(crs = 5070)  # Assume this is a large sf object
+data(ncpoints)
+sb <- ncpoints |>
+  sf::st_as_sf(coords= c("X", "Y"), crs=5070) |>
+  sf::st_buffer(5000)  # Assume this is another large sf object
+
+# You may want to replace the two lines below with your own large vector datasets for testing.
+# sa <- __large_vector_data__  # Assume this is a large vector dataset
+# sb <- __large_vector_data__  # Assume this is another large vector dataset
+```
+
+Suppose sb is smaller than sa, and we want to run a function, a binary operation, on each row of sa with sb. We can use the `futurize` function to parallelize this operation across the rows of sa.
+
+
+```r
+func_row <- function(row, foo) {
+  sb_s <- sb[row, ]
+  sa_s <- sa[sb_s, ]
+  foo(sa_s, sb_s)
+}
+
+future::plan(multisession, workers = 2L)
+system.time(
+lapply(1:nrow(sa), func_row, foo = sf::st_intersection) |>
+  futurize::futurize()
+)
+
+future::plan(sequential)
+```
+
+It should work as `sf` object is directly exported to the worker process. However, the one below should fail due to `terra` object's pointer state.
+
+```r
+func_row_t <- function(row, foo) {
+  sbt_s <- sbt[row, ]
+  sat_s <- sat[sbt_s, ]
+  foo(sat_s, sbt_s)
+}
+
+sat <- terra::vect(sa)
+sbt <- terra::vect(sb)
+
+future::plan(multisession, workers = 2L)
+system.time(
+  jj <- lapply(1:nrow(sat), func_row_t, foo = terra::intersect) |>
+    futurize::futurize(options = futurize_options(seed = TRUE))
+)
+
+future::plan(sequential)
+```
+
+The code above will fail with "external pointer is not valid" error. As one might have noted, in the main `lapply()` call, we passed the sequence of row indices to the function, which is then used to subset the `sf` object. 
+
+<!--
+EXTENSION SUGGESTION: Follow the failure with a pointer-safe pattern: send a
+file path, WKT, or another serializable value to each worker and construct the
+SpatVector/SpatRaster inside the worker. Contrast process-based backends with
+supported forked execution, while noting platform differences. Put the
+intentional failure in a chunk with error = TRUE (or eval = FALSE) so it does
+not abort vignette builds.
+-->
+
+
+One caveat is that most use cases suffice to use ordinary function run (i.e., terra) as internal loop runs efficiently. In this case, row parallelization may not be necessary and may even introduce overhead.
+
+```r
+func_in <- function(row, foo) {
+  sa_s <- sa[row, ]
+  foo(sa_s, sb)
+}
+
+system.time(
+  intersect_1 <- lapply(1:nrow(sa), func_in, foo = sf::st_nearest_feature) |>
+    futurize::futurize() |>
+    do.call(what = rbind)
+)
+
+system.time(
+  intersect_2 <- sf::st_nearest_feature(sa, sb)
+)
+
+all.equal(as.vector(intersect_1), intersect_2)
+# TRUE
+```
+
+`chopin` functions, especially `chopin::extract_at()`, do not operate with `futurize::futurize()` since it uses `future::future_lapply()` and auto-detects package dependencies of input objects internally. 
+
+Then, when would you expect the benefit of `chopin` parallelization? We suggest three conditions of the cases where `chopin` parallelization is beneficial:
+
+1. The input data is large enough to be split into multiple chunks, and each chunk can be processed independently.
+
+2. The processing function is completed within a processing extent that is supported by the `chopin` `par_*()` functions. In other words, one understands the maximum required extent of the processed data per chunk, and the processing function does not require data outside of that extent.
+
+3. The processing function is computationally intensive enough that the overhead of parallelization is outweighed by the speedup gained from processing multiple chunks in parallel.
+

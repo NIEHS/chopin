@@ -1,6 +1,6 @@
 Package: chopin
 Title: Spatial Parallel Computing by Hierarchical Data Partitioning
-Version: 0.9.9-5
+Version: 0.9.9-6
 Authors@R: c(
     person("Insang", "Song", email = "geoissong@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-8732-3256")),
@@ -38,7 +38,6 @@ Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Imports:
     anticlust,
     cli,
@@ -72,3 +71,4 @@ Suggests:
     h3r
 VignetteBuilder: knitr
 Config/testthat/edition: 3
+Config/roxygen2/version: 8.0.0

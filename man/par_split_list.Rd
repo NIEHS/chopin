@@ -42,19 +42,19 @@ par_split_list(nc_comp_region)
 par(lastpar)
 }
 \seealso{
-Other Parallelization: 
-\code{\link{par_cut_coords}()},
-\code{\link{par_grid}()},
-\code{\link{par_grid_mirai}()},
-\code{\link{par_hierarchy}()},
-\code{\link{par_hierarchy_mirai}()},
-\code{\link{par_make_dggrid}()},
-\code{\link{par_make_grid}()},
-\code{\link{par_make_h3}()},
-\code{\link{par_merge_grid}()},
-\code{\link{par_multirasters}()},
-\code{\link{par_multirasters_mirai}()},
-\code{\link{par_pad_balanced}()},
-\code{\link{par_pad_grid}()}
+Other Parallelization:
+\code{\link[=par_cut_coords]{par_cut_coords()}},
+\code{\link[=par_grid]{par_grid()}},
+\code{\link[=par_grid_mirai]{par_grid_mirai()}},
+\code{\link[=par_hierarchy]{par_hierarchy()}},
+\code{\link[=par_hierarchy_mirai]{par_hierarchy_mirai()}},
+\code{\link[=par_make_dggrid]{par_make_dggrid()}},
+\code{\link[=par_make_grid]{par_make_grid()}},
+\code{\link[=par_make_h3]{par_make_h3()}},
+\code{\link[=par_merge_grid]{par_merge_grid()}},
+\code{\link[=par_multirasters]{par_multirasters()}},
+\code{\link[=par_multirasters_mirai]{par_multirasters_mirai()}},
+\code{\link[=par_pad_balanced]{par_pad_balanced()}},
+\code{\link[=par_pad_grid]{par_pad_grid()}}
 }
 \concept{Parallelization}

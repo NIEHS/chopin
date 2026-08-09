@@ -23,13 +23,13 @@ Return clipping extent with buffer radius.
 It assumes the input CRS is projected and linear unit is meters.
 }
 \seealso{
-Other Helper functions: 
-\code{\link{datamod}()},
-\code{\link{dep_check}()},
-\code{\link{dep_switch}()},
-\code{\link{par_def_q}()},
-\code{\link{reproject_std}()},
-\code{\link{reproject_to_raster}()}
+Other Helper functions:
+\code{\link[=datamod]{datamod()}},
+\code{\link[=dep_check]{dep_check()}},
+\code{\link[=dep_switch]{dep_switch()}},
+\code{\link[=par_def_q]{par_def_q()}},
+\code{\link[=reproject_std]{reproject_std()}},
+\code{\link[=reproject_to_raster]{reproject_to_raster()}}
 }
 \author{
 Insang Song

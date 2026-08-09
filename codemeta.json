@@ -4,17 +4,17 @@
   "identifier": "chopin",
   "description": "Geospatial data computation is parallelized by grid, hierarchy, or raster files. Based on 'future' (Bengtsson, 2024 <doi:10.32614/CRAN.package.future>) and 'mirai' (Gao et al., 2025 <doi:10.32614/CRAN.package.mirai>) parallel back-ends, 'terra' (Hijmans et al., 2025 <doi:10.32614/CRAN.package.terra>) and 'sf' (Pebesma et al., 2024 <doi:10.32614/CRAN.package.sf>) functions as well as convenience functions in the package can be distributed over multiple threads. The simplest way of parallelizing generic geospatial computation is to start from par_pad_*() functions to par_grid(), par_hierarchy(), or par_multirasters() functions. Virtually any functions accepting classes in 'terra' or 'sf' packages can be used in the three parallelization functions. A common raster-vector overlay operation is provided as a function extract_at(), which uses 'exactextractr' (Baston, 2023 <doi:10.32614/CRAN.package.exactextractr>), with options for kernel weights for summarizing raster values at vector geometries. Other convenience functions for vector-vector operations including simple areal interpolation (summarize_aw()) and summation of exponentially decaying weights (summarize_sedc()) are also provided.",
   "name": "chopin: Spatial Parallel Computing by Hierarchical Data Partitioning",
-  "relatedLink": ["https://docs.ropensci.org/chopin/", "https://CRAN.R-project.org/package=chopin"],
+  "relatedLink": "https://docs.ropensci.org/chopin/",
   "codeRepository": "https://github.com/ropensci/chopin",
   "issueTracker": "https://github.com/ropensci/chopin/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.9.9",
+  "version": "0.9.9.6",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.5.1 (2025-06-13)",
+  "runtimePlatform": "R version 4.6.1 (2026-06-24)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -412,7 +412,7 @@
     },
     "SystemRequirements": "netcdf"
   },
-  "fileSize": "2453.943KB",
+  "fileSize": "5479.591KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -445,14 +445,5 @@
         }
       }
     }
-  ],
-  "releaseNotes": "https://github.com/ropensci/chopin/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/chopin/blob/main/README.md",
-  "contIntegration": "https://github.com/ropensci/chopin/actions/workflows/check-standard.yaml",
-  "developmentStatus": "https://lifecycle.r-lib.org/articles/stages.html#stable",
-  "review": {
-    "@type": "Review",
-    "url": "https://github.com/ropensci/software-review/issues/638",
-    "provider": "https://ropensci.org"
-  }
+  ]
 }

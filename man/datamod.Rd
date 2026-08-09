@@ -22,13 +22,13 @@ whether to classify vector or raster,
 it will be considered raster in this package.
 }
 \seealso{
-Other Helper functions: 
-\code{\link{dep_check}()},
-\code{\link{dep_switch}()},
-\code{\link{get_clip_ext}()},
-\code{\link{par_def_q}()},
-\code{\link{reproject_std}()},
-\code{\link{reproject_to_raster}()}
+Other Helper functions:
+\code{\link[=dep_check]{dep_check()}},
+\code{\link[=dep_switch]{dep_switch()}},
+\code{\link[=get_clip_ext]{get_clip_ext()}},
+\code{\link[=par_def_q]{par_def_q()}},
+\code{\link[=reproject_std]{reproject_std()}},
+\code{\link[=reproject_to_raster]{reproject_to_raster()}}
 }
 \author{
 Insang Song
