@@ -79,12 +79,12 @@ When \code{x} and \code{y} are different classes,
 point geometries.
 }
 \seealso{
-Other Macros for calculation: 
-\code{\link{extract_at}()},
-\code{\link{kernelfunction}()},
-\code{\link{summarize_aw}()},
-\code{\link{summarize_sedc}()},
-\code{\link{summarize_st}()}
+Other Macros for calculation:
+\code{\link[=extract_at]{extract_at()}},
+\code{\link[=kernelfunction]{kernelfunction()}},
+\code{\link[=summarize_aw]{summarize_aw()}},
+\code{\link[=summarize_sedc]{summarize_sedc()}},
+\code{\link[=summarize_st]{summarize_st()}}
 }
 \author{
 Insang Song \email{geoissong@gmail.com}

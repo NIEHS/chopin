@@ -27,7 +27,7 @@ Coordinates are in EPSG:5070 (Conus Albers Equal Area)
 data("ncpoints", package = "chopin")
 }
 \seealso{
-Other Dataset: 
+Other Dataset:
 \code{\link{prediction_grid}}
 }
 \concept{Dataset}

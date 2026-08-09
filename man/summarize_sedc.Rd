@@ -104,12 +104,12 @@ suppressWarnings(
 }
 }
 \seealso{
-Other Macros for calculation: 
-\code{\link{extract_at}()},
-\code{\link{kernelfunction}()},
-\code{\link{summarize_aw}()},
-\code{\link{summarize_pp}()},
-\code{\link{summarize_st}()}
+Other Macros for calculation:
+\code{\link[=extract_at]{extract_at()}},
+\code{\link[=kernelfunction]{kernelfunction()}},
+\code{\link[=summarize_aw]{summarize_aw()}},
+\code{\link[=summarize_pp]{summarize_pp()}},
+\code{\link[=summarize_st]{summarize_st()}}
 }
 \author{
 Insang Song

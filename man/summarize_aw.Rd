@@ -60,7 +60,7 @@ The function to calculate the weighted summary.
 Default is \code{\link[stats:weighted.mean]{stats::weighted.mean}}. The function must have a \code{w}
 argument. If both \code{x} and \code{y} are \code{sf}, it should be one of
 \code{c("sum", "mean")}. It will determine \code{extensive} argument in
-\code{\link[sf:interpolate_aw]{sf::st_interpolate_aw}}.}
+\code{\link[sf:st_interpolate_aw]{sf::st_interpolate_aw}}.}
 
 \item{extent}{numeric(4) or SpatExtent object. Extent of clipping \code{x}.
 It only works with \code{x} of character(1) file path.
@@ -121,12 +121,12 @@ summary(ppb_nc_aw)
 par(lastpar)
 }
 \seealso{
-Other Macros for calculation: 
-\code{\link{extract_at}()},
-\code{\link{kernelfunction}()},
-\code{\link{summarize_pp}()},
-\code{\link{summarize_sedc}()},
-\code{\link{summarize_st}()}
+Other Macros for calculation:
+\code{\link[=extract_at]{extract_at()}},
+\code{\link[=kernelfunction]{kernelfunction()}},
+\code{\link[=summarize_pp]{summarize_pp()}},
+\code{\link[=summarize_sedc]{summarize_sedc()}},
+\code{\link[=summarize_st]{summarize_st()}}
 }
 \author{
 Insang Song \email{geoissong@gmail.com}

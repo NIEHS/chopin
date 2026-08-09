@@ -17,13 +17,13 @@ Data converted to the other package class
 Convert class between \code{sf}/\code{stars}-\code{terra}
 }
 \seealso{
-Other Helper functions: 
-\code{\link{datamod}()},
-\code{\link{dep_check}()},
-\code{\link{get_clip_ext}()},
-\code{\link{par_def_q}()},
-\code{\link{reproject_std}()},
-\code{\link{reproject_to_raster}()}
+Other Helper functions:
+\code{\link[=datamod]{datamod()}},
+\code{\link[=dep_check]{dep_check()}},
+\code{\link[=get_clip_ext]{get_clip_ext()}},
+\code{\link[=par_def_q]{par_def_q()}},
+\code{\link[=reproject_std]{reproject_std()}},
+\code{\link[=reproject_to_raster]{reproject_to_raster()}}
 }
 \author{
 Insang Song

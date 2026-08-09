@@ -41,12 +41,12 @@ kernelfunction(v_dist, bw_dist2, "epanechnikov")
 https://github.com/JanCaha/SpatialKDE
 }
 \seealso{
-Other Macros for calculation: 
-\code{\link{extract_at}()},
-\code{\link{summarize_aw}()},
-\code{\link{summarize_pp}()},
-\code{\link{summarize_sedc}()},
-\code{\link{summarize_st}()}
+Other Macros for calculation:
+\code{\link[=extract_at]{extract_at()}},
+\code{\link[=summarize_aw]{summarize_aw()}},
+\code{\link[=summarize_pp]{summarize_pp()}},
+\code{\link[=summarize_sedc]{summarize_sedc()}},
+\code{\link[=summarize_st]{summarize_st()}}
 }
 \concept{Macros for calculation}
 \keyword{internal}
